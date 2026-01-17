@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>FAQ</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+
+<header> 
+    <h1 class="center-home">TROVE BY ASRAR</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="shop.html">Shop All</a>
+
+    <div class="dropdown">
+  <button>Accessories ▼</button>
+  <div class="dropdown-content">
+    <a href="earrings.html">Earrings</a>
+    <a href="keychains.html">Keychains</a>
+    <a href="phonecharms.html">Phone Charms</a>
+    <a href="bracelets.html">Bracelets</a>
+    <a href="necklaces.html">Necklaces</a>
+  </div>
+</div>
+
+    <a href="new.html">New Arrivals</a>
+    <a href="about.html">Our Story</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button id="cartBtn" onclick="openCart()">Cart 🛒</button>
+
+ </header>
+
+<main>
+  <h1 class="faq-title">FREQUENTLY ASKED QUESTIONS</h1>
+
+<div class="faq-box">
+  <h2>1. Do you take custom orders?</h2>
+  <p>Yes! Contact us on Instagram or email to customize your accessories.</p>
+</div>
+
+<div class="faq-box">
+  <h2>2. How long will delivery take?</h2>
+  <p>Delivery takes 2–7 business days depending on your city.</p>
+</div>
+
+<div class="faq-box">
+  <h2>3. What payment methods do you accept?</h2>
+  <p>Cash on delivery and Bank transfer (if available).</p>
+</div>
+
+<div class="faq-box">
+  <h2>4. Can I return or exchange items?</h2>
+  <p>Only damaged items can be returned within 3 days of delivery.</p>
+</div>
+</main>
+
+<footer>
+     <p>© 2026 TROVE BY ASRAR</p>
+  <div class="footer-links">
+    <a href="shipping.html">Shipping & Returns</a>
+    <a href="faq.html">FAQ</a>
+    <a href="track.html">Track Your Order</a>
+    <a href="privacy.html">Privacy Policy & Terms</a>
+  </div>
+</footer>
+<div id="cartModal" class="modal">
+  <div class="form">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+
+    <h4>Checkout Details</h4>
+    <input type="text" id="custName" placeholder="Your Name">
+    <input type="text" id="custPhone" placeholder="Phone Number">
+    <input type="text" id="custAddress" placeholder="Delivery Address">
+    <input type="email" id="custEmail" placeholder="Email">
+    
+    <button class="submit" onclick="checkout()">Place Order</button>
+    <button class="close" onclick="closeCart()">Close</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

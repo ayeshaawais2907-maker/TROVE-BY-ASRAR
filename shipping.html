@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>SHIPPING</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+
+<header> 
+    <h1 class="center-home">TROVE BY ASRAR</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="shop.html">Shop All</a>
+
+    <div class="dropdown">
+  <button>Accessories ▼</button>
+  <div class="dropdown-content">
+    <a href="earrings.html">Earrings</a>
+    <a href="keychains.html">Keychains</a>
+    <a href="phonecharms.html">Phone Charms</a>
+    <a href="bracelets.html">Bracelets</a>
+    <a href="necklaces.html">Necklaces</a>
+  </div>
+</div>
+
+    <a href="new.html">New Arrivals</a>
+    <a href="about.html">Our Story</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button id="cartBtn" onclick="openCart()">Cart 🛒</button>
+
+ </header>
+
+<main>
+  <h1 class="faq-title">SHIPPING INFORMATION</h1>
+  <div class="faq-box">
+  <h2>DELIVERY TIME:</h2>
+  <p>Orders are processed within 2–3 business days.</p>
+  </div>
+  <div class="faq-box">
+  <h2>SHIPPING CHARGES:</h2>
+  <p>- Inside Pakistan: PKR 100<br>
+     - International: Coming soon
+  </p>
+  </div>
+  <div class="faq-box">
+  <h2>TRACKING:</h2>
+  <p>Once your order is shipped, you will receive a tracking number by email.</p>
+  </div>
+  <div class="faq-box">
+  <h2>DELAYS:</h2>
+  <p>Public holidays and weather may cause delays.</p>
+  </div>
+</main>
+
+<footer>
+     <p>© 2026 TROVE BY ASRAR</p>
+  <div class="footer-links">
+    <a href="shipping.html">Shipping & Returns</a>
+    <a href="faq.html">FAQ</a>
+    <a href="track.html">Track Your Order</a>
+    <a href="privacy.html">Privacy Policy & Terms</a>
+  </div>
+</footer>
+<div id="cartModal" class="modal">
+  <div class="form">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+
+    <h4>Checkout Details</h4>
+    <input type="text" id="custName" placeholder="Your Name">
+    <input type="text" id="custPhone" placeholder="Phone Number">
+    <input type="text" id="custAddress" placeholder="Delivery Address">
+    <input type="email" id="custEmail" placeholder="Email">
+    
+    <button class="submit" onclick="checkout()">Place Order</button>
+    <button class="close" onclick="closeCart()">Close</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

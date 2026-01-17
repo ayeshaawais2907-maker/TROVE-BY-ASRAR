@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Our Story</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+
+<header>
+  <h1 class="center-home">TROVE BY ASRAR</h1>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="shop.html">Shop All</a>
+
+    <div class="dropdown">
+  <button>Accessories ▼</button>
+  <div class="dropdown-content">
+    <a href="earrings.html">Earrings</a>
+    <a href="keychains.html">Keychains</a>
+    <a href="phonecharms.html">Phone Charms</a>
+    <a href="bracelets.html">Bracelets</a>
+    <a href="necklaces.html">Necklaces</a>
+  </div>
+</div>
+
+    <a href="new.html">New Arrivals</a>
+    <a href="about.html">Our Story</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button id="cartBtn" onclick="openCart()">Cart 🛒</button>
+
+</header>
+
+<main>
+  <h2>🌿 OUR STORY</h2>
+
+<p>Trove by Asrar began with a simple idea —
+to create small treasures that bring joy into everyday life.<br><br>
+
+What started as a hobby at a tiny desk, surrounded by beads, charms, and sketches, slowly grew into something more meaningful. 
+Each piece was designed with care, and every sparkly accessory held a little bit of love, personality, and imagination.<br><br>
+
+Asrar believed that the right accessory can change the whole way you feel about your day —
+make you smile, add confidence, or remind you of something beautiful.<br><br>
+
+With every bracelet threaded, every earring assembled, and every charm polished by hand, Trove by Asrar found its purpose:<br>
+to make affordable, handmade accessories that feel special, personal, and one of a kind.<br><br>
+
+Today, Trove by Asrar continues to grow, but the heart remains the same —
+to craft pieces that tell stories, celebrate individuality, and remind you that beauty lies in the little things.<br><br>
+
+Whether you’re treating yourself or gifting a friend, we hope our creations bring a spark of happiness to your world 🌸💛</p>
+</main>
+
+<footer>
+     <p>© 2026 TROVE BY ASRAR</p>
+  <div class="footer-links">
+    <a href="shipping.html">Shipping & Returns</a>
+    <a href="faq.html">FAQ</a>
+    <a href="track.html">Track Your Order</a>
+    <a href="privacy.html">Privacy Policy & Terms</a>
+  </div>
+</footer>
+<div id="cartModal" class="modal">
+  <div class="form">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+
+    <h4>Checkout Details</h4>
+    <input type="text" id="custName" placeholder="Your Name">
+    <input type="text" id="custPhone" placeholder="Phone Number">
+    <input type="text" id="custAddress" placeholder="Delivery Address">
+    <input type="email" id="custEmail" placeholder="Email">
+    
+    <button class="submit" onclick="checkout()">Place Order</button>
+    <button class="close" onclick="closeCart()">Close</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
