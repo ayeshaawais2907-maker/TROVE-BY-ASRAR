@@ -321,7 +321,7 @@ const best = document.getElementById("best-sellers");
 const page = window.location.pathname.split("/").pop().split(".")[0];
 
 items.forEach(item => {
-  if (best && page === "home" && item.bestSeller) {
+  if (best && page === "index" && item.bestSeller) {
     addCard(best, item);
   }
 
