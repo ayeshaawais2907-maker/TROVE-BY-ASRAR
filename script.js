@@ -338,7 +338,7 @@ items.forEach(item => {
   }
 });
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addCard(container, item) {
   const card = document.createElement("div");
@@ -378,10 +378,18 @@ function closeProductModal() {
 
 function addToCart(id) {
   const item = items.find(i => i.id === id);
-  if (item) {
-    cart.push(item);
-    alert(`${item.name} added to cart!`);
+  if (!item) return;
+
+  const existingItem = cart.find(i => i.id === id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ ...item, quantity: 1 });
   }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${item.name} added to cart!`);
 }
 
 function openCart() {
@@ -395,23 +403,41 @@ function closeCart() {
 
 function displayCartItems() {
   const cartDiv = document.getElementById("cartItems");
+  const totalSpan = document.getElementById("cartTotal");
+
   cartDiv.innerHTML = "";
-  if(cart.length === 0){
+  let total = 0;
+
+  if (cart.length === 0) {
     cartDiv.innerHTML = "<p>Cart is empty</p>";
+    totalSpan.innerText = "0";
     return;
   }
+
   cart.forEach((item, index) => {
+    total += item.price * item.quantity;
+
     const div = document.createElement("div");
     div.innerHTML = `
-      ${item.name} - Rs ${item.price} 
+      <p>
+        <strong>${item.name}</strong><br>
+        Rs ${item.price} × ${item.quantity}
+      </p>
+
+      <button onclick="changeQuantity(${index}, -1)">➖</button>
+      <button onclick="changeQuantity(${index}, 1)">➕</button>
       <button onclick="removeFromCart(${index})">Remove</button>
+      <hr>
     `;
     cartDiv.appendChild(div);
   });
+
+  totalSpan.innerText = total;
 }
 
 function removeFromCart(index) {
   cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
   displayCartItems();
 }
 
@@ -426,15 +452,35 @@ function checkout() {
     return;
   }
 
-  if(cart.length === 0){
+  if (cart.length === 0) {
     alert("Your cart is empty!");
     return;
   }
 
-  alert(`Thank you, ${name}! Your order has been placed.`);
+  let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  let summary = cart
+    .map(item => `• ${item.name} × ${item.quantity} = Rs ${item.price * item.quantity}`)
+    .join("\n");
+
+  alert(
+    `Order Summary:\n\n${summary}\n\nTotal: Rs ${total}\n\nThank you, ${name}! Your order has been placed.`
+  );
+
   cart = [];
+  localStorage.removeItem("cart");
   closeCart();
 }
 
+function changeQuantity(index, change) {
+  cart[index].quantity += change;
+
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCartItems();
+}
 
 
